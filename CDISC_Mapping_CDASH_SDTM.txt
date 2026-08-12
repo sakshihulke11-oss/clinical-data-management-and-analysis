@@ -1,0 +1,254 @@
+================================================================================
+CDISC STANDARDS MAPPING DOCUMENTATION
+================================================================================
+
+EXECUTIVE SUMMARY
+-----------------
+This document outlines the mapping between Case Report Form (CRF) variables 
+captured in CDASH format and their standardized representation in SDTM 
+(Study Data Tabulation Model) for regulatory submission.
+
+Key Principle: CDASH captures raw source data; SDTM transforms to standardized 
+analysis-ready format with enhanced metadata.
+
+================================================================================
+SECTION 1: DEMOGRAPHICS AND ENROLLMENT MAPPING
+================================================================================
+
+CDASH SOURCE VARIABLE          -> SDTM STANDARDIZED VARIABLE
+----------------------------     ----------------------------
+Patient_ID                      -> DM.USUBJID
+Enrollment_Date                 -> DM.ENRDT
+Age                             -> DM.AGE
+Gender                          -> DM.SEX
+
+DETAILED MAPPING:
+
+1. Patient_ID (CDASH) -> DM.USUBJID (SDTM)
+   Description: Unique subject identifier
+   Data Type: Character
+   Length: Maximum 8 characters
+   Format: PT001, PT002, ... PT020
+   SDTM Variable: Unique Subject Identifier (USUBJID)
+   Domain: Demographics (DM)
+   Example: DM.USUBJID = "PT001"
+
+2. Enrollment_Date (CDASH) -> DM.ENRDT (SDTM)
+   Description: Date subject enrolled in study
+   Data Type: Date
+   Format: YYYY-MM-DD (ISO 8601)
+   SDTM Variable: Enrollment Date (ENRDT)
+   Domain: Demographics (DM)
+   Example: DM.ENRDT = "2026-01-15"
+
+3. Age (CDASH) -> DM.AGE (SDTM)
+   Description: Age of subject at screening/baseline
+   Data Type: Numeric
+   Unit: Years
+   Range: 18-100
+   SDTM Variable: Age (AGE)
+   SDTM Variable Unit: AGEUNIT = "YEARS"
+   Domain: Demographics (DM)
+   Example: DM.AGE = 55, DM.AGEUNIT = "YEARS"
+
+4. Gender (CDASH) -> DM.SEX (SDTM)
+   Description: Biological sex of subject
+   Data Type: Character (Coded)
+   Codelist: M = Male, F = Female
+   SDTM Variable: Sex (SEX)
+   Domain: Demographics (DM)
+   Example: DM.SEX = "M"
+   Note: CDISC-Controlled Terminology required for regulatory submission
+
+================================================================================
+SECTION 2: VITAL SIGNS MAPPING (VS DOMAIN)
+================================================================================
+
+CDASH SOURCE VARIABLE          -> SDTM STANDARDIZED VARIABLE
+----------------------------     ----------------------------
+Visit_Type                      -> VS.VISIT
+Visit_Date                      -> VS.VSDAT
+Systolic_BP                     -> VS.VSORRES (for Systolic Pressure)
+Diastolic_BP                    -> VS.VSORRES (for Diastolic Pressure)
+Heart_Rate                      -> VS.VSORRES (for Heart Rate)
+
+DETAILED MAPPING:
+
+1. Vital Signs Domain (VS) - Blood Pressure Recording
+
+   CDASH Variable: Systolic_BP
+   SDTM Representation:
+   ├─ VS.USUBJID = PT001
+   ├─ VS.VISIT = "Baseline" [Visit_Type mapping]
+   ├─ VS.VSDAT = 2026-01-15 [Visit_Date mapping]
+   ├─ VS.VSCODE = "SYSBP" [Parameter code for Systolic Pressure]
+   ├─ VS.VSTEST = "Systolic Pressure" [Parameter name]
+   ├─ VS.VSORRES = 145 [Original recorded value]
+   ├─ VS.VSORRESU = "mmHg" [Unit of measurement]
+   ├─ VS.VSCAT = "VITAL SIGNS" [Category]
+   └─ VS.VSTESTCD = "SYSBP" [Test code]
+
+   CDASH Variable: Diastolic_BP
+   SDTM Representation:
+   ├─ VS.USUBJID = PT001
+   ├─ VS.VISIT = "Baseline"
+   ├─ VS.VSDAT = 2026-01-15
+   ├─ VS.VSCODE = "DIABP" [Parameter code for Diastolic Pressure]
+   ├─ VS.VSTEST = "Diastolic Pressure"
+   ├─ VS.VSORRES = 92
+   ├─ VS.VSORRESU = "mmHg"
+   ├─ VS.VSCAT = "VITAL SIGNS"
+   └─ VS.VSTESTCD = "DIABP"
+
+   CDASH Variable: Heart_Rate
+   SDTM Representation:
+   ├─ VS.USUBJID = PT001
+   ├─ VS.VISIT = "Baseline"
+   ├─ VS.VSDAT = 2026-01-15
+   ├─ VS.VSCODE = "HR" [Parameter code for Heart Rate]
+   ├─ VS.VSTEST = "Heart Rate"
+   ├─ VS.VSORRES = 72
+   ├─ VS.VSORRESU = "bpm" [Beats per minute]
+   ├─ VS.VSCAT = "VITAL SIGNS"
+   └─ VS.VSTESTCD = "HR"
+
+2. Visit Mapping (CDASH -> SDTM Timing)
+   
+   CDASH: Visit_Type + Visit_Date
+   SDTM Translation:
+   
+   Visit_Type: "Baseline"    -> VS.VISIT = "Baseline", VS.VISITNUM = 1
+   Visit_Type: "Week 4"      -> VS.VISIT = "Week 4", VS.VISITNUM = 2
+   Visit_Type: "Week 8"      -> VS.VISIT = "Week 8", VS.VISITNUM = 3
+   
+   Visit_Date -> VS.VSDAT (exact date of vital sign measurement)
+   vs. SDTM.VISITDY (imputed study day): VISITDY = VSDAT - ENRDT + 1
+
+================================================================================
+SECTION 3: LABORATORY VALUES MAPPING (LB DOMAIN)
+================================================================================
+
+CDASH SOURCE VARIABLE          -> SDTM STANDARDIZED VARIABLE
+----------------------------     ----------------------------
+Fasting_Glucose_mg_dL          -> LB.LBORRES, LB.LBTEST = "Glucose"
+Total_Cholesterol_mg_dL        -> LB.LBORRES, LB.LBTEST = "Cholesterol"
+
+DETAILED MAPPING:
+
+1. Laboratory Results Domain (LB)
+
+   CDASH Variable: Fasting_Glucose_mg_dL
+   SDTM Representation:
+   ├─ LB.USUBJID = PT001
+   ├─ LB.VISIT = "Baseline"
+   ├─ LB.LBDAT = 2026-01-15
+   ├─ LB.LBCODE = "GLUC" [Parameter code]
+   ├─ LB.LBTEST = "Glucose, Fasting" [Test description]
+   ├─ LB.LBCAT = "CHEMISTRY" [Category]
+   ├─ LB.LBORRES = 105 [Original result from CRF]
+   ├─ LB.LBORRESU = "mg/dL" [Original units]
+   ├─ LB.LBSTNRLO = 70 [Reference low normal]
+   ├─ LB.LBSTNRHI = 100 [Reference high normal]
+   └─ LB.LBSTAT = "NORMAL" [Status based on reference range]
+
+   CDASH Variable: Total_Cholesterol_mg_dL
+   SDTM Representation:
+   ├─ LB.USUBJID = PT001
+   ├─ LB.VISIT = "Baseline"
+   ├─ LB.LBDAT = 2026-01-15
+   ├─ LB.LBCODE = "CHOL" [Parameter code]
+   ├─ LB.LBTEST = "Cholesterol" [Test description]
+   ├─ LB.LBCAT = "CHEMISTRY"
+   ├─ LB.LBORRES = 210
+   ├─ LB.LBORRESU = "mg/dL"
+   ├─ LB.LBSTNRLO = 100 [Desired low]
+   ├─ LB.LBSTNRHI = 200 [Desired high]
+   └─ LB.LBSTAT = "HIGH" [Status: exceeds reference range]
+
+================================================================================
+SECTION 4: MEDICATION COMPLIANCE MAPPING (EC DOMAIN)
+================================================================================
+
+CDASH SOURCE VARIABLES              -> SDTM STANDARDIZED MAPPING
+------------------------               ----------------------------------
+Medication_Name                     -> EC.ECNAME
+Dose_mg                             -> EC.ECDOSE
+Compliance_Percent                  -> EC.ECSTAT (derived compliance flag)
+
+DETAILED MAPPING:
+
+Exposure to Clinical Trial Drug (EC Domain)
+Purpose: Track medication administration and compliance
+
+CDASH to SDTM:
+├─ EC.USUBJID = PT001 [Patient ID]
+├─ EC.VISIT = "Week 4"
+├─ EC.ECDAT = 2026-02-12 [Visit date]
+├─ EC.ECNAME = "Lisinopril" [Medication name]
+├─ EC.ECDOSE = 10 [Dose quantity]
+├─ EC.ECDOSU = "mg" [Dose unit]
+├─ EC.ECFREQ = "Daily" [Dosing frequency - from protocol]
+├─ EC.ECROUTE = "Oral" [Route of administration - from protocol]
+├─ EC.ECSTAT = "DISPENSED" [Status]
+├─ COMPLIANCE_DERIVED = 100 [Computed from Compliance_Percent]
+└─ COMPLIANCE_FLAG = "COMPLIANT" [Flag: "COMPLIANT" if >=80%, else "NON-COMPLIANT"]
+
+Note: Compliance tracking may use separate dataset or computed variable
+
+================================================================================
+SECTION 5: ADVERSE EVENTS MAPPING (AE DOMAIN)
+================================================================================
+
+CDASH SOURCE VARIABLES          -> SDTM STANDARDIZED VARIABLE
+----------------------------     ----------------------------
+Adverse_Event                   -> AE.AETERM (adverse event term)
+AE_Severity                     -> AE.AESEV (severity coding)
+Visit_Date                      -> AE.AESTDTC (start date/time)
+
+DETAILED MAPPING:
+
+1. Adverse Event Domain (AE)
+
+   CDASH Variable: Adverse_Event = "Headache"
+   SDTM Representation:
+   ├─ AE.USUBJID = PT001
+   ├─ AE.AENUM = 1 [Sequential AE number per subject]
+   ├─ AE.AETERM = "Headache" [Dictionary term for adverse event]
+   ├─ AE.AEDECOD = "Headache NEC" [MedDRA coded term, if applicable]
+   ├─ AE.AESTDTC = "2026-02-12" [Start date of adverse event]
+   ├─ AE.AESEV = "MILD" [Severity level]
+   ├─ AE.AESER = "N" [Serious AE? Yes/No]
+   ├─ AE.AEREL = "RELATED" [Relationship to study drug]
+   └─ AE.AEACN = "NONE" [Action taken: DOSE_REDUCED, DOSE_INCREASED, NONE, etc.]
+
+2. Severity Mapping (CDASH -> SDTM)
+   
+   CDASH: AE_Severity = "Mild"       -> SDTM: AE.AESEV = "MILD"
+   CDASH: AE_Severity = "Moderate"   -> SDTM: AE.AESEV = "MODERATE"
+   CDASH: AE_Severity = "Severe"     -> SDTM: AE.AESEV = "SEVERE"
+
+   Serious Adverse Events (SAEs): Flagged separately
+   MODERATE or SEVERE AEs for certain terms (Syncope, Hyperkalemia) 
+   automatically trigger SAE review process
+
+================================================================================
+SECTION 6: VISIT AND TIMING MAPPING
+================================================================================
+
+CDASH Visit Variables           -> SDTM Timing Variables
+----------------------------     ----------------------------
+Visit_Type                      -> VISIT, VISITNUM, VISITDY
+Visit_Date                      -> VSDAT (or domain-specific date)
+Enrollment_Date                 -> Used to calculate VISITDY
+
+Mapping Logic:
+
+VISITNUM = Sequential visit number (1, 2, 3, ...)
+VISITDY = (Visit_Date - Enrollment_Date) + 1
+
+Example:
+┌─ PT001 Enrollment: 2026-01-15
+├─ Baseline Visit: 2026-01-15 -> VISITNUM=1, VISITDY=1
+├─ Week 4 Visit: 2026-02-12 -> VISITNUM=2, VISITDY=29
+└─ Week 8 Visit: 2026-03-12 -> VISITNUM=3, VISITDAY=57
+

@@ -1,0 +1,142 @@
+
+================================================================================
+CLINICAL DATA MANAGEMENT - DATA QUALITY ASSESSMENT REPORT
+================================================================================
+
+CLINICAL DATA MANAGEMENT
+DATA QUALITY REPORT
+==================================================
+
+Project: Clinical Data Management and Analysis
+Dataset: Synthetic Clinical Data
+
+
+## EXECUTIVE SUMMARY
+
+Total Records Reviewed: 60
+
+Total Variables: 18
+
+Overall Data Completeness: 91.02%
+
+The clinical dataset was reviewed to identify selected missing and inconsistent data values. The review included clinical data checks and issue identification, and the identified issues were recorded in the Edit Clarification Log.
+
+
+## DATA QUALITY ISSUES
+
+Total Issues Identified: 2
+
+
+Issue Breakdown by Severity:
+
+Severity
+High    2
+
+
+Issue Breakdown by Type:
+
+Issue_Type
+Missing Required Field    2
+
+
+## MISSING DATA ASSESSMENT
+
+Variable                          Missing_Count    Missing_Percent
+
+AE_Severity                       47               78.33%
+Adverse_Event                     47               78.33%
+Systolic_BP                       1                1.67%
+Total_Cholesterol_mg_dL           1                1.67%
+Fasting_Glucose_mg_dL             1                1.67%
+
+
+Note:
+
+Missing Adverse_Event and AE_Severity values may represent patients
+with no reported adverse event. Therefore, these values should not
+automatically be considered data quality issues.
+
+
+## COMPLETENESS BY VISIT TYPE
+
+Baseline: 88.89%
+
+Week 4: 93.61%
+
+Week 8: 90.56%
+
+
+## DATA REVIEW CHECKS
+
+The dataset was reviewed for the following data quality checks:
+
+1. Missing required clinical data
+
+2. Missing Systolic Blood Pressure values
+
+3. Invalid Age values
+
+4. Invalid Systolic Blood Pressure values
+
+5. Invalid Diastolic Blood Pressure values
+
+6. Blood Pressure logical inconsistencies
+
+
+## DESCRIPTIVE STATISTICS
+
+Descriptive statistics were generated for selected clinical variables:
+
+- Age
+
+- Systolic Blood Pressure
+
+- Diastolic Blood Pressure
+
+- Heart Rate
+
+- Weight
+
+
+The statistical summary includes:
+
+- Count
+- Mean
+- Standard Deviation
+- Minimum
+- 25th Percentile
+- Median
+- 75th Percentile
+- Maximum
+
+
+## OUTPUT FILES
+
+The following output file was generated during the data review:
+
+1. Edit_Clarification_Log.csv
+
+
+## NEXT STEPS
+
+1. Review the issues listed in the Edit Clarification Log.
+
+2. Investigate identified missing or inconsistent clinical data.
+
+3. Update or correct the data where appropriate.
+
+4. Re-run the Python data quality checks after corrections.
+
+5. Review the updated Data Quality Report and Edit Clarification Log.
+
+
+## PROJECT STATUS
+
+Data review completed successfully.
+
+The project demonstrates a basic Clinical Data Management workflow
+using Python for clinical data quality review and issue identification.
+
+SQL analysis was performed separately to explore patient, visit,
+medication, adverse event, and clinical data patterns using basic
+to intermediate SQL techniques.

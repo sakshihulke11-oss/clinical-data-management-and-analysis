@@ -1,0 +1,61 @@
+Patient_ID,Enrollment_Date,Visit_Type,Visit_Date,Age,Gender,Systolic_BP,Diastolic_BP,Heart_Rate,Weight_kg,Medication_Name,Dose_mg,Compliance_Percent,Fasting_Glucose_mg_dL,Total_Cholesterol_mg_dL,Adverse_Event,AE_Severity,Notes
+PT001,15-01-2026,Baseline,15-01-2026,55,M,145,92,72,78.5,Lisinopril,10,100,105,210,None,NA,Patient compliant with study procedures
+PT001,15-01-2026,Week 4,12-02-2026,55,M,138,88,70,78.2,Lisinopril,10,100,98,205,Headache,Mild,Mild headache reported on Day 8
+PT001,15-01-2026,Week 8,12-03-2026,55,M,132,85,68,77.9,Lisinopril,10,100,92,198,None,NA,Good response to treatment
+PT002,16-01-2026,Baseline,16-01-2026,62,F,158,98,76,82.1,Enalapril,5,95,118,235,None,NA,Previous hypertension diagnosis
+PT002,16-01-2026,Week 4,13-02-2026,62,F,,96,74,82,Enalapril,5,90,,,Nausea,Mild,Missing systolic BP reading - query needed
+PT002,16-01-2026,Week 8,13-03-2026,62,F,145,92,72,81.8,Enalapril,5,100,109,222,None,NA,BP controlled
+PT003,17-01-2026,Baseline,17-01-2026,48,M,135,88,70,75.3,Ramipril,2.5,100,95,195,None,NA,No significant medical history
+PT003,17-01-2026,Week 4,14-02-2026,48,M,130,85,68,75.5,Ramipril,2.5,100,92,192,Dizziness,Mild,Orthostatic dizziness noted
+PT003,17-01-2026,Week 8,14-03-2026,48,M,125,82,66,75.8,Ramipril,2.5,100,88,185,None,NA,Stable response
+PT004,18-01-2026,Baseline,18-01-2026,71,M,168,105,82,88.9,Amlodipine,5,85,125,255,None,NA,Elderly patient - tolerating well
+PT004,18-01-2026,Week 4,15-02-2026,71,M,155,100,78,89.1,Amlodipine,5,85,115,248,Ankle_Edema,Mild,Peripheral edema in bilateral ankles
+PT004,18-01-2026,Week 8,15-03-2026,71,M,148,96,76,89.5,Amlodipine,5,90,110,240,Ankle_Edema,Mild,Edema slightly improved
+PT005,19-01-2026,Baseline,19-01-2026,59,F,152,94,75,80.2,Lisinopril,10,100,112,228,None,NA,Good compliance expected
+PT005,19-01-2026,Week 4,16-02-2026,59,F,140,87,71,79.9,Lisinopril,10,100,102,215,Dry_Cough,Mild,Known ACE inhibitor side effect
+PT005,19-01-2026,Week 8,16-03-2026,59,F,135,84,69,79.5,Lisinopril,10,100,98,208,Dry_Cough,Mild,Cough persistent but tolerable
+PT006,20-01-2026,Baseline,20-01-2026,54,M,162,100,79,86.7,Enalapril,5,95,120,242,None,NA,High baseline BP
+PT006,20-01-2026,Week 4,17-02-2026,54,M,148,91,74,86.5,Enalapril,5,100,108,230,None,NA,Good response
+PT006,20-01-2026,Week 8,17-03-2026,54,M,142,88,71,86.3,Enalapril,5,100,105,224,None,NA,Target BP achieved
+PT007,21-01-2026,Baseline,21-01-2026,67,F,170,108,84,92.1,Ramipril,2.5,90,135,268,None,NA,Baseline measurements taken
+PT007,21-01-2026,Week 4,18-02-2026,67,F,158,102,80,92.4,Ramipril,2.5,90,128,260,None,NA,Medication titration considered
+PT007,21-01-2026,Week 8,18-03-2026,67,F,150,98,77,92.7,Ramipril,2.5,95,122,252,None,NA,Improved response
+PT008,22-01-2026,Baseline,22-01-2026,52,M,140,85,68,77,Amlodipine,5,100,98,205,None,NA,Baseline visit completed
+PT008,22-01-2026,Week 4,19-02-2026,52,M,135,82,66,77.2,Amlodipine,5,100,95,200,Flushing,Mild,Transient facial flushing noted
+PT008,22-01-2026,Week 8,19-03-2026,52,M,130,80,64,77.5,Amlodipine,5,100,92,195,None,NA,Flushing resolved
+PT009,23-01-2026,Baseline,23-01-2026,61,F,155,96,76,83.5,Lisinopril,10,100,115,235,None,NA,Patient education completed
+PT009,23-01-2026,Week 4,20-02-2026,61,F,142,88,72,83.2,Lisinopril,10,100,105,220,None,NA,Good adherence
+PT009,23-01-2026,Week 8,20-03-2026,61,F,138,85,70,83,Lisinopril,10,100,100,210,None,NA,Stable BP control
+PT010,24-01-2026,Baseline,24-01-2026,58,M,148,92,74,81.2,Enalapril,5,95,110,225,None,NA,Pre-visit labs completed
+PT010,24-01-2026,Week 4,21-02-2026,58,M,140,87,71,81,Enalapril,5,95,102,215,None,NA,Treatment response positive
+PT010,24-01-2026,Week 8,21-03-2026,58,M,135,84,68,80.8,Enalapril,5,100,98,208,None,NA,Study endpoint completed
+PT011,25-01-2026,Baseline,25-01-2026,69,F,165,102,81,87.9,Ramipril,2.5,85,128,250,None,NA,Elderly study participant
+PT011,25-01-2026,Week 4,22-02-2026,69,F,155,96,78,88.1,Ramipril,2.5,85,120,240,Hyperkalemia,Moderate,Potassium level elevated - dietary counseling given
+PT011,25-01-2026,Week 8,22-03-2026,69,F,148,92,75,88.3,Ramipril,2.5,90,118,235,None,NA,Potassium normalized on repeat lab
+PT012,26-01-2026,Baseline,26-01-2026,56,M,152,94,75,79.3,Amlodipine,5,100,112,232,None,NA,All baseline assessments complete
+PT012,26-01-2026,Week 4,23-02-2026,56,M,142,87,71,79.5,Amlodipine,5,100,105,220,None,NA,BP trending down
+PT012,26-01-2026,Week 8,23-03-2026,56,M,138,84,69,79.7,Amlodipine,5,100,100,212,None,NA,Medication well tolerated
+PT013,27-01-2026,Baseline,27-01-2026,64,F,160,99,78,85.6,Lisinopril,10,90,122,245,None,NA,Patient randomized
+PT013,27-01-2026,Week 4,24-02-2026,64,F,148,91,74,85.4,Lisinopril,10,90,112,232,Cough,Mild,ACE inhibitor related cough
+PT013,27-01-2026,Week 8,24-03-2026,64,F,142,87,71,85.2,Lisinopril,10,100,108,225,None,NA,Patient switched to Enalapril due to persistent cough
+PT014,28-01-2026,Baseline,28-01-2026,53,M,145,90,72,76.8,Enalapril,5,100,105,210,None,NA,Baseline visit completed
+PT014,28-01-2026,Week 4,25-02-2026,53,M,138,86,70,76.9,Enalapril,5,100,98,203,None,NA,Compliant with dosing schedule
+PT014,28-01-2026,Week 8,25-03-2026,53,M,132,83,67,77,Enalapril,5,100,92,195,None,NA,Treatment successful
+PT015,29-01-2026,Baseline,29-01-2026,70,M,172,106,85,91.2,Ramipril,2.5,80,132,260,None,NA,High risk hypertension
+PT015,29-01-2026,Week 4,26-02-2026,70,M,162,100,82,91.4,Ramipril,2.5,85,125,252,Syncope,Moderate,Syncope episode reported - dose evaluation
+PT015,29-01-2026,Week 8,26-03-2026,70,M,155,96,78,91.6,Ramipril,2.5,80,122,245,None,NA,Dose adjusted - no further events
+PT016,30-01-2026,Baseline,30-01-2026,57,F,150,93,75,82.3,Amlodipine,5,100,110,228,None,NA,All procedures completed
+PT016,30-01-2026,Week 4,27-02-2026,57,F,140,86,71,82.1,Amlodipine,5,100,102,218,None,NA,Stable BP
+PT016,30-01-2026,Week 8,27-03-2026,57,F,135,83,68,81.9,Amlodipine,5,100,98,210,None,NA,Endpoint reached
+PT017,31-01-2026,Baseline,31-01-2026,63,M,158,97,77,84.5,Lisinopril,10,95,118,240,None,NA,Enrollment confirmed
+PT017,31-01-2026,Week 4,28-02-2026,63,M,145,89,73,84.3,Lisinopril,10,95,108,228,Dry_Cough,Mild,Cough attributed to ACE-I
+PT017,31-01-2026,Week 8,28-03-2026,63,M,140,86,70,84.1,Lisinopril,10,100,105,220,Dry_Cough,Mild,Persistent but manageable
+PT018,01-02-2026,Baseline,01-02-2026,55,F,148,91,74,78.9,Enalapril,5,100,105,215,None,NA,Patient informed consent obtained
+PT018,01-02-2026,Week 4,01-03-2026,55,F,138,84,70,78.7,Enalapril,5,100,98,205,None,NA,Medication adherence good
+PT018,01-02-2026,Week 8,29-03-2026,55,F,132,81,67,78.5,Enalapril,5,100,92,198,None,NA,Study endpoint achieved
+PT019,02-02-2026,Baseline,02-02-2026,68,M,164,101,80,88.1,Ramipril,2.5,90,125,248,None,NA,Baseline assessments documented
+PT019,02-02-2026,Week 4,02-03-2026,68,M,152,94,77,88.3,Ramipril,2.5,90,118,238,None,NA,Good medication response
+PT019,02-02-2026,Week 8,30-03-2026,68,M,145,90,74,88.5,Ramipril,2.5,95,112,230,None,NA,BP target achieved
+PT020,03-02-2026,Baseline,03-02-2026,51,F,142,88,71,75.6,Amlodipine,5,100,100,205,None,NA,All baseline data captured
+PT020,03-02-2026,Week 4,03-03-2026,51,F,135,82,67,75.8,Amlodipine,5,100,95,198,None,NA,Excellent tolerability
+PT020,03-02-2026,Week 8,31-03-2026,51,F,130,79,64,76,Amlodipine,5,100,90,190,None,NA,Study completion visit

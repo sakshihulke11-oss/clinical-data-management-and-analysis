@@ -143,7 +143,7 @@ Read `CDISC_Mapping_CDASH_SDTM.txt` section by section:
 
 ---
 
-## Interview Talking Points
+##  Points
 
 1. **Data Quality Challenge Solved:**  
    "Identified and logged 2 critical Systolic BP missing values while correctly distinguishing them from legitimate missing Adverse Event data (78% of patients had no events). Demonstrated understanding of clinical context in data quality rules."

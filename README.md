@@ -114,32 +114,6 @@ Comprehensive six-section mapping aligning raw CDASH (Case Report Form) variable
 - Controlled Terminology ready (CDISC CT codes documented)
 - Study safety tracking (SAE flags in AE domain mapping)
 
----
-
-## How to Use This Repository
-
-### 1. **Review the Data Pipeline**
-```bash
-# Run the Python notebook to re-generate data quality checks
-jupyter notebook pyton_file.ipynb
-```
-Outputs: `Edit_Clarification_Log.csv`, `CDM_Data_Quality_Report.txt`
-
-### 2. **Execute SQL Analysis**
-```sql
--- Load synthetic data into SQL database
--- Run queries against Synthetic_Clinical_Data.csv
--- Example: Query #7 - Average clinical values across all patients
-```
-
-### 3. **Understand CDISC Mapping**
-Read `CDISC_Mapping_CDASH_SDTM.txt` section by section:
-- **Section 1:** Demographics domain basics
-- **Section 2:** Vital signs parameterization
-- **Section 3:** Lab results with reference ranges
-- **Section 4:** Medication exposure and compliance
-- **Section 5:** Adverse event tracking and MedDRA readiness
-- **Section 6:** Visit timing and imputation logic
 
 ---
 
@@ -170,37 +144,23 @@ Read `CDISC_Mapping_CDASH_SDTM.txt` section by section:
 
 ---
 
-## Future Enhancements
-
-- **ADaM Dataset Generation:** Derive analysis-ready dataset (ADSL, ADVS) from SDTM
-- **Edit Rules Expansion:** Add more complex interdomain validations (e.g., "Visit date must be ≥ Enrollment date")
-- **SAS Integration:** Port Python validation checks to SAS for regulatory submission compatibility
-- **Compliance Metrics:** Derive patient-level compliance flags and generate blinded interim analysis datasets
-
----
-
 ## Regulatory & Compliance Notes
 
 This project demonstrates understanding of:
 - **ICH-GCP Guidelines:** Good Clinical Practice standards for data integrity
 - **21 CFR Part 11:** Audit trails and data governance (simulated via Edit Clarification Log)
 - **CDISC Standards:** Industry-standard data structures for regulatory submissions
-- **FDA Guidance:** Data quality expectations for NDA/BLA submissions
 
 ---
 
 ## Author
 
 **Sakshi** | Clinical Data Management & Analytics Portfolio  
-B.Pharm (SGBAU, 2026) | Clinical Data Management Certified (92%)
+B.Pharm (SGBAU, 2026) | 
 
 **Contact & Links:**
 - GitHub: [sakshihulke11-oss](https://github.com/sakshihulke11-oss)
-- CDM Certification: Global Health Network (ID: 0307f4a8-c9f6-4b81-b0d5-2ff68cc38305)
 
----
-
-## License
 
 This project is provided for portfolio and educational purposes. Synthetic data is not real patient information.
 

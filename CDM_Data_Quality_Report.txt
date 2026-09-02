@@ -110,11 +110,6 @@ The statistical summary includes:
 - Maximum
 
 
-## OUTPUT FILES
-
-The following output file was generated during the data review:
-
-1. Edit_Clarification_Log.csv
 
 
 ## NEXT STEPS
